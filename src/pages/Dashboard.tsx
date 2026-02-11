@@ -1,7 +1,6 @@
 import {
   TrendingUp, TrendingDown, DollarSign, Wallet, CreditCard, Receipt,
-  ArrowUpRight, ArrowDownRight, AlertTriangle, Bot, Clock, CheckCircle, ExternalLink,
-  Users, Scale, Server, Megaphone, Activity, Database, Clipboard, Palette, Heart, ShieldCheck
+  ArrowUpRight, ArrowDownRight, AlertTriangle, Bot, Clock, CheckCircle, ExternalLink
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -92,156 +91,33 @@ export default function Dashboard() {
         ))}
       </div>
 
-      {/* AI C-Suite Pods */}
-      <div>
-        <h2 className="text-lg font-semibold mb-3">AI C-Suite Teams</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {[
-            {
-              name: "DealCloser & Finance AI",
-              role: "CFO & Sales",
-              desc: "Ensures financial sustainability, capital efficiency, and real-time resource allocation.",
-              benefit: "Reduces OpEx by 30%",
-              icon: DollarSign,
-              color: "text-emerald-500"
-            },
-            {
-              name: "Revenue Engine AI",
-              role: "CRO",
-              desc: "Drives revenue generation, pipeline health, and market penetration.",
-              benefit: "24/7 Lead Qualification",
-              icon: TrendingUp,
-              color: "text-blue-500"
-            },
-            {
-              name: "Tech Architect AI",
-              role: "CTO",
-              desc: "Drives technical excellence, infrastructure scalability, and innovative R&D.",
-              benefit: "Zero Technical Debt",
-              icon: Server,
-              color: "text-slate-500"
-            },
-            {
-              name: "Growth Marketing AI",
-              role: "CMO",
-              desc: "Manages brand positioning, customer acquisition, and market intelligence.",
-              benefit: "10x Marketing ROI",
-              icon: Megaphone,
-              color: "text-pink-500"
-            },
-            {
-              name: "Talent & Culture AI",
-              role: "CHRO",
-              desc: "Optimizes organizational capability, talent allocation, and culture.",
-              benefit: "Streamlined Hiring",
-              icon: Users,
-              color: "text-purple-500"
-            },
-            {
-              name: "Legal Guardian AI",
-              role: "CLO",
-              desc: "Provides legal protection, contract review, and risk mitigation.",
-              benefit: "Instant Contract Review",
-              icon: Scale,
-              color: "text-amber-700"
-            },
-            {
-              name: "Operations Ninja AI",
-              role: "COO",
-              desc: "Ensures operational excellence, process efficiency, and automation.",
-              benefit: "Flawless Execution",
-              icon: Activity,
-              color: "text-orange-500"
-            },
-            {
-              name: "Market Intel AI",
-              role: "CIO",
-              desc: "Gathers strategic intelligence and deep market understanding.",
-              benefit: "Data-Driven Strategy",
-              icon: Database,
-              color: "text-cyan-600"
-            },
-            {
-              name: "Product Delivery AI",
-              role: "PMO",
-              desc: "Oversees product execution, roadmap delivery, and feature tradeoffs.",
-              benefit: "On-Time Delivery",
-              icon: Clipboard,
-              color: "text-indigo-500"
-            },
-            {
-              name: "Creative Director AI",
-              role: "CDO",
-              desc: "Guarantees user experience excellence and brand consistency.",
-              benefit: "World-Class UX",
-              icon: Palette,
-              color: "text-rose-500"
-            },
-            {
-              name: "Customer Hero AI",
-              role: "CXO",
-              desc: "Manages customer success, satisfaction, and retention risks.",
-              benefit: "Zero Churn",
-              icon: Heart,
-              color: "text-red-500",
-              link: "https://customerheroexperience.netlify.app/"
-            },
-            {
-              name: "AI Governance AI",
-              role: "Ethics",
-              desc: "Enforces responsible AI, ethical operations, and bias mitigation.",
-              benefit: "100% Compliance",
-              icon: ShieldCheck,
-              color: "text-green-600",
-              link: "https://ethicsaiaiai.netlify.app/"
-            }
-          ].map((pod, i) => (
-            <div key={i} className="group relative">
-              {pod.link ? (
-                <a href={pod.link} target="_blank" rel="noopener noreferrer" className="block h-full cursor-pointer text-inherit no-underline">
-                  <Card className="h-full hover:shadow-md transition-all border-l-4" style={{ borderLeftColor: pod.color.replace('text-', '').replace('-500', '').replace('-600', '').replace('-700', '') === 'emerald' ? '#10b981' : pod.color.replace('text-', '').replace('-500', '').replace('-600', '').replace('-700', '') === 'blue' ? '#3b82f6' : 'currentColor' }}>
-                    <CardHeader className="pb-2 flex flex-row items-center justify-between space-y-0">
-                      <div className={`p-2 rounded-lg bg-muted ${pod.color}`}>
-                        <pod.icon className="h-5 w-5" />
-                      </div>
-                      <ExternalLink className="h-3 w-3 text-muted-foreground" />
-                    </CardHeader>
-                    <CardContent>
-                      <h3 className="font-semibold text-base">{pod.name}</h3>
-                      <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">{pod.role}</p>
-                      <p className="text-xs text-muted-foreground mb-3 line-clamp-2">{pod.desc}</p>
-                      <Badge variant="secondary" className="w-full justify-center text-[10px] py-0.5 mb-3 bg-secondary/50">
-                        {pod.benefit}
-                      </Badge>
-                      <div className="w-full py-1.5 rounded-md bg-primary/10 text-primary text-xs font-medium text-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                        Hire {pod.role}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </a>
-              ) : (
-                <Card className="h-full hover:shadow-md transition-all border-l-4" style={{ borderLeftColor: 'transparent' }}>
-                  <CardHeader className="pb-2 flex flex-row items-center justify-between space-y-0">
-                    <div className={`p-2 rounded-lg bg-muted ${pod.color}`}>
-                      <pod.icon className="h-5 w-5" />
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <h3 className="font-semibold text-base">{pod.name}</h3>
-                    <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">{pod.role}</p>
-                    <p className="text-xs text-muted-foreground mb-3 line-clamp-2">{pod.desc}</p>
-                    <Badge variant="secondary" className="w-full justify-center text-[10px] py-0.5 mb-3 bg-secondary/50">
-                      {pod.benefit}
-                    </Badge>
-                    <button className="w-full py-1.5 rounded-md bg-primary/10 text-primary text-xs font-medium text-center hover:bg-primary hover:text-primary-foreground transition-colors">
-                      Hire {pod.role}
-                    </button>
-                  </CardContent>
-                </Card>
-              )}
-            </div>
-          ))}
-        </div>
+      {/* External Pods */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <a href="https://customerheroexperience.netlify.app/" target="_blank" rel="noopener noreferrer" className="block text-inherit no-underline">
+          <Card className="hover:bg-accent/5 transition-colors cursor-pointer h-full">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-base font-medium">CHRO Pod</CardTitle>
+              <ExternalLink className="h-4 w-4 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-xl font-bold">Customer Hero Experience</div>
+              <p className="text-xs text-muted-foreground mt-1">Access the Human Resources & Customer Experience dashboard</p>
+            </CardContent>
+          </Card>
+        </a>
+
+        <a href="https://ethicsaiaiai.netlify.app/" target="_blank" rel="noopener noreferrer" className="block text-inherit no-underline">
+          <Card className="hover:bg-accent/5 transition-colors cursor-pointer h-full">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-base font-medium">Ethics Pod</CardTitle>
+              <ExternalLink className="h-4 w-4 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-xl font-bold">Ethics & Governance</div>
+              <p className="text-xs text-muted-foreground mt-1">Access the AI Ethics & Governance dashboard</p>
+            </CardContent>
+          </Card>
+        </a>
       </div>
 
       {/* Charts Row 1 */}
