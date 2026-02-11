@@ -1,6 +1,6 @@
 import {
   TrendingUp, TrendingDown, DollarSign, Wallet, CreditCard, Receipt,
-  ArrowUpRight, ArrowDownRight, AlertTriangle, Bot, Clock, CheckCircle
+  ArrowUpRight, ArrowDownRight, AlertTriangle, Bot, Clock, CheckCircle, ExternalLink
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -89,6 +89,35 @@ export default function Dashboard() {
             </CardContent>
           </Card>
         ))}
+      </div>
+
+      {/* External Pods */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <a href="https://customerheroexperience.netlify.app/" target="_blank" rel="noopener noreferrer" className="block text-inherit no-underline">
+          <Card className="hover:bg-accent/5 transition-colors cursor-pointer h-full">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-base font-medium">CHRO Pod</CardTitle>
+              <ExternalLink className="h-4 w-4 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-xl font-bold">Customer Hero Experience</div>
+              <p className="text-xs text-muted-foreground mt-1">Access the Human Resources & Customer Experience dashboard</p>
+            </CardContent>
+          </Card>
+        </a>
+
+        <a href="https://ethicsaiaiai.netlify.app/" target="_blank" rel="noopener noreferrer" className="block text-inherit no-underline">
+          <Card className="hover:bg-accent/5 transition-colors cursor-pointer h-full">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-base font-medium">Ethics Pod</CardTitle>
+              <ExternalLink className="h-4 w-4 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-xl font-bold">Ethics & Governance</div>
+              <p className="text-xs text-muted-foreground mt-1">Access the AI Ethics & Governance dashboard</p>
+            </CardContent>
+          </Card>
+        </a>
       </div>
 
       {/* Charts Row 1 */}
@@ -216,8 +245,8 @@ export default function Dashboard() {
             {mockAgents.slice(0, 5).map(agent => (
               <div key={agent.id} className="flex items-center gap-2">
                 <span className={`h-1.5 w-1.5 rounded-full shrink-0 ${agent.status === 'running' ? 'bg-success animate-pulse-dot' :
-                    agent.status === 'completed' ? 'bg-info' :
-                      agent.status === 'failed' ? 'bg-destructive' : 'bg-muted-foreground'
+                  agent.status === 'completed' ? 'bg-info' :
+                    agent.status === 'failed' ? 'bg-destructive' : 'bg-muted-foreground'
                   }`} />
                 <span className="text-xs text-foreground flex-1 truncate">{agent.name}</span>
                 <span className="text-[10px] text-muted-foreground">{agent.accuracy}%</span>
